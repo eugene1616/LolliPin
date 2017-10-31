@@ -18,6 +18,8 @@ android {
     }
 }
 
+def moxy = '1.5.3'
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //RippleView
@@ -29,6 +31,12 @@ dependencies {
     compile 'com.android.support:support-v4:26.0.2'
     compile 'com.android.support:appcompat-v7:26.0.2'
     compile "com.android.support:support-v13:26.0.2"
+
+    compile "com.arello-mobile:moxy:$moxy"
+    compile "com.arello-mobile:moxy-android:$moxy"
+    compile "com.arello-mobile:moxy-app-compat:$moxy"
+    annotationProcessor "com.arello-mobile:moxy-compiler:$moxy"
+
 }
 repositories {
     maven {
