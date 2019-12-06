@@ -1,7 +1,9 @@
 package com.github.omadahealth.lollipin;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.widget.Toolbar;
+
 import com.github.omadahealth.lollipin.lib.PinCompatActivity;
 import lollipin.orangegangsters.github.com.lollipin.R;
 
@@ -25,7 +27,7 @@ public class LockedCompatActivity extends PinCompatActivity{
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
         toolbar.setSubtitle("SubTitle");
         toolbar.setSubtitleTextColor(getResources().getColor(android.R.color.white));
-        toolbar.setLogo(R.drawable.ic_launcher);
+        toolbar.setLogo(R.drawable.icon);
         toolbar.setNavigationIcon(R.drawable.ic_menu_white_36dp);
     }
 }
