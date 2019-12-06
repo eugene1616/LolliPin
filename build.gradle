@@ -12,6 +12,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" } // для зависимостей из github.com
         maven { url "https://github.com/omadahealth/omada-nexus/raw/master/release" }
     }
 }
