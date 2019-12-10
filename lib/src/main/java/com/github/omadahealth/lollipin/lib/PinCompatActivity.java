@@ -1,5 +1,6 @@
 package com.github.omadahealth.lollipin.lib;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -41,25 +42,25 @@ public class PinCompatActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        onResumeLocal();
+        onResumeLocal(PinCompatActivity.this);
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        onPauseLocal();
+        onPauseLocal(PinCompatActivity.this);
         super.onPause();
     }
 
-    public void onResumeLocal() {
+    public static void onResumeLocal(Activity activity) {
         if (mLifeCycleListener != null) {
-            mLifeCycleListener.onActivityResumed(PinCompatActivity.this);
+            mLifeCycleListener.onActivityResumed(activity);
         }
     }
 
-    public void onPauseLocal() {
+    public static void onPauseLocal(Activity activity) {
         if (mLifeCycleListener != null) {
-            mLifeCycleListener.onActivityPaused(PinCompatActivity.this);
+            mLifeCycleListener.onActivityPaused(activity);
         }
     }
 
