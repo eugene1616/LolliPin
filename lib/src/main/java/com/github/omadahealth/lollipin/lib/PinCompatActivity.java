@@ -33,30 +33,38 @@ public class PinCompatActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         IntentFilter filter = new IntentFilter(AppLockActivity.ACTION_CANCEL);
         LocalBroadcastManager.getInstance(this).registerReceiver(mPinCancelledReceiver, filter);
     }
 
     @Override
-    public void onResume() {
-        if (mLifeCycleListener != null) {
-            mLifeCycleListener.onActivityResumed(PinCompatActivity.this);
-        }
+    protected void onResume() {
+        onResumeLocal();
         super.onResume();
     }
 
     @Override
-    public void onPause() {
-        if (mLifeCycleListener != null) {
-            mLifeCycleListener.onActivityPaused(PinCompatActivity.this);
-        }
+    protected void onPause() {
+        onPauseLocal();
         super.onPause();
     }
 
+    public void onResumeLocal() {
+        if (mLifeCycleListener != null) {
+            mLifeCycleListener.onActivityResumed(PinCompatActivity.this);
+        }
+    }
+
+    public void onPauseLocal() {
+        if (mLifeCycleListener != null) {
+            mLifeCycleListener.onActivityPaused(PinCompatActivity.this);
+        }
+    }
+
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mPinCancelledReceiver);
     }
